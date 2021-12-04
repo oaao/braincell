@@ -1,3 +1,4 @@
+import sys
 from numpy import exp, array, random, dot
 
 
@@ -60,7 +61,7 @@ class SingleNeuronNetwork:
         return self.__sigmoid_func(dot(inputs, self.synaptic_weights))
 
     def encounter_new(self, test_case):
-        """Pose a new input case to the NN."""
+        """Pose a new (or specific) input case to the NN."""
 
         print(
             f"\nConsidering new situation {str(test_case)} -> ?:\n"
@@ -88,9 +89,9 @@ if __name__ == "__main__":
         [[0, 1, 1, 0]]
     ).T
 
-    # run the training process with the training set a fuckload of times
+    # run the training process with the training set a given number of times
     nn.training_process(train_set_in, train_set_out, 10000)
-    print(f"Post-training synaptic weights:\n {nn.synaptic_weights}")
+    print(f"\nPost-training synaptic weights:\n {nn.synaptic_weights}")
 
-    # test the lil fucker with a new situation:
+    # test the trained NN instance with a new input situation:
     nn.encounter_new([1, 0, 0])
