@@ -94,4 +94,6 @@ if __name__ == "__main__":
     print(f"\nPost-training synaptic weights:\n {nn.synaptic_weights}")
 
     # test the trained NN instance with a new input situation:
-    nn.encounter_new([1, 0, 0])
+    nn.encounter_new(
+        [1, 0, 0]
+    )
