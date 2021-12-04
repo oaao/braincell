@@ -49,7 +49,9 @@ class SingleNeuronNetwork:
             # adjust the synaptic weights nice n easy
             self.synaptic_weights += adj
 
-            print(f"{i}: \n {str(output)}")
+            print(
+                f"Iteration {i}:\n"
+                f"{str(output)}")
 
     def reasoning_process(self, inputs):
         """This is what the loose verbiage of AI "thinking" means."""
@@ -61,7 +63,7 @@ class SingleNeuronNetwork:
         """Pose a new input case to the NN."""
 
         print(
-            f"\nConsidering new situation {str(test_case)} -> ?:"
+            f"\nConsidering new situation {str(test_case)} -> ?:\n"
             f"{self.reasoning_process(array(test_case))}"
         )
 
