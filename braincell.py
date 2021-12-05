@@ -5,25 +5,30 @@ from numpy import exp, array, random, dot
 class SingleNeuronNetwork:
 
     def __init__(self, seed=0):
-        """Initialise the 'neuron' / 'neural network'."""
+        """
+        Initialise the 'neuron' / 'neural network'.
+        """
 
         # use the same rng seed every run
         random.seed(seed)
 
         # model a single neuron with 3 inputs : 1 output
-        # and randomize weights to e.g. 3x1 matrix b/w -1 and 1, and mean of 0
+        # and randomize weights for a 3x1 matrix 
+        #    (with values between -1 and 1, and mean of 0)
         self.synaptic_weights = 2 * random.random((3, 1)) - 1
 
     def __sigmoid_func(self, x):
-        """Describe an S-shaped (sigmoid) curve."""
+        """Functionally represent an S-shaped (sigmoid) curve."""
 
-        # pass weighted sum of inputs through it to noramlize them between 0 and 1
+        # pass weighted sum of inputs through sigmoid function
+        # in order to normalise them as values between 0 and 1
         return 1 / (1 + exp(-x))
 
     def __sigmoid_deriv(self, x):
-        """Obtain the derivative of the sigmoid curve."""
+        """Obtain the derivative of the sigmoid curve/function."""
 
-        # provides gradient of curve, i.e. given-moment confidence in synaptic weighting
+        # compute gradient of curve,
+        # i.e. given-moment confidence in synaptic weighting
         return x * (1 - x)
 
     def training_process(self, train_inputs, train_outputs, iteration_num):
@@ -36,7 +41,7 @@ class SingleNeuronNetwork:
             # pass train set through single-neuron NN
             output = self.reasoning_process(train_inputs)
 
-            # calc 'error' amount (diff between actual vs. predicted output)
+            # compute 'error' amount (diff between actual vs. predicted output)
             err_rate = train_outputs - output
 
             # multiply error by input, then by gradient of Sigmoid curve, so that:
@@ -55,7 +60,13 @@ class SingleNeuronNetwork:
                 f"{str(output)}")
 
     def reasoning_process(self, inputs):
-        """This is what the loose verbiage of AI "thinking" means."""
+        """
+        Evaluate a given input based on current (trained) synaptic weights.
+
+        Fundamentally, this is what it means when an "AI" is "thinking",
+        in a low-level sense.
+        """
+
 
         # pass (dot product) inputs through the single-neuron NN
         return self.__sigmoid_func(dot(inputs, self.synaptic_weights))
