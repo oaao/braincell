@@ -50,7 +50,8 @@ class SingleNeuronNetwork:
         Initialise the 'neuron' / 'neural network'.
         """
 
-        self.verbosity = verbosity
+        self.is_trained = False
+        self.verbosity  = verbosity
 
         # get a random seed, but use the same one
         # for all initial synaptic weights
@@ -121,6 +122,7 @@ class SingleNeuronNetwork:
                     f"\nIteration {i}:\n"
                     f"{str(output)}")
 
+        self.is_trained = True
         print(f"\nPost-training synaptic weights:\n {self.synaptic_weights}")
 
     def reason_about(self, inputs):
@@ -129,7 +131,7 @@ class SingleNeuronNetwork:
         by passing the dot product of inputs through the single-neuron NN.
 
         Fundamentally, this is what it means when an "AI" is "thinking",
-        in a low-level sense.
+        (or a machine learning model is "reasoning"), in a low-level sense.
         """
         return self.__sigmoid_func(dot(inputs, self.synaptic_weights))
 
@@ -138,6 +140,12 @@ class SingleNeuronNetwork:
         print(
             f"\nConsidering new situation: {str(test_case)} -> ?"
         )
+        if not self.is_trained:
+            print(
+                f"WARNING: Your model is untrained; results will be random!"
+                f"\nCall .train() on this instance with "
+                f"an appropriately shaped array of training data."
+            )
         result = self.reason_about(array(test_case))
         print(
             f"{result} for an expected output of {test_case[0]}."
