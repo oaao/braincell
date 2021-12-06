@@ -175,14 +175,11 @@ if __name__ == "__main__":
         ]
     )
 
+    # the 'correct answers' for the input training 'puzzle' above, per row.
+    # (as shown in the per-row comments above, i.e. always first element.)
     train_set_out = array(
         [
-            [
-                0,
-                1,
-                1,
-                0
-            ]
+            [0, 1, 1, 0]
         ]
     ).T
 
