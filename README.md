@@ -10,13 +10,19 @@ An annotated demonstration of a "single-neuron neural network" model, as a teach
 > - through the adjustment of synaptic weights relative to known-outcome input data,
 > - by iteratively calibrating those weights against a sigmoid function (and its derivative, as self-measured error)
 
-Understanding of this foundational, mathematically-rooted process allows us to in turn better understand higher-level machine learning concepts of different flavours (be they associative, collocative, adversarial, etc.).
+Understanding this foundational, mathematically-rooted process allows us to in turn better understand higher-level machine learning concepts of different flavours (be they associative, collocative, adversarial, etc.).
 
-Our thingy:
+----
 
+The "puzzle" posed to the 'atomic' NN is simple: a 3x1 matrix (-> 3in:1out 'neuron') with values of either 0 or 1, in which the 'answer' / expected output is simply the first element.
+
+```python
+[ 0, 1, 1, 1 ]  # 0
+```
+
+This keeps the problem space simple enough to focus on its mathematical operations (and avoid the 'code noise' of more involved value processing), while letting it be *just* complex enough to meaningfully display initialisation and training behaviours.
 
 ## Usage
-----
 
 Depends on `numpy`.
 
