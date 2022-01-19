@@ -1,20 +1,18 @@
 # braincell
 
-An annotated demonstration of a "single-neuron neural network" model, as a teaching/learning tool for the fundamental underpinnings of machine learning and (in contemporary, loose usage) AI.
+An annotated demonstration of a "single-neuron neural network" model, as a teaching/learning tool for the fundamental underpinnings of machine learning.
 
->Articulating the NN in 'atomic' unit-form highlights the lower-level statistical operations that are performed at the heart of machine learning: 
-
->In short,
+>Articulating the NN in 'atomic' unit form highlights the hierarchy of operations that are performed at the heart of machine learning: 
 >
 > - "training" and "reasoning"/guessing in a given model,
 > - through the adjustment of synaptic weights relative to known-outcome input data,
 > - by iteratively calibrating those weights against a sigmoid function (and its derivative, as self-measured error)
 
-Understanding this foundational, mathematically-rooted process allows us to in turn better understand higher-level machine learning concepts of different flavours (be they associative, collocative, adversarial, etc.).
+Understanding this schematic, but especially the foundational 'lower-level' mathematical process, allows a better understanding of higher-level machine learning concepts of different flavours (be they collocative, adversarial, etc.).
 
 ----
 
-The "puzzle" posed to the 'atomic' NN is simple: a 3x1 matrix (-> 3in:1out 'neuron') with values of either 0 or 1, in which the 'answer' / expected output is simply the first element.
+The "puzzle" posed to the 'atomic' NN is simple: a 3x1 matrix (-> 3 in : 1 out 'neuron'), containing elements of either 0 or 1, in which the 'answer' / expected output is simply the first element.
 
 ```python
 [ 0, 1, 1, 1 ]  # 0
