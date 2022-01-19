@@ -42,9 +42,6 @@ def get_validated_inputs(sysargs):
 
 class SingleNeuronNetwork:
 
-    # a visual divider for stdout
-    DIVIDER = '----------------'
-
     def __init__(self, verbosity=True):
         """
         Initialise the 'neuron' / 'neural network'.
