@@ -1,7 +1,7 @@
 import sys
 from collections import Counter
 
-from numpy import exp, array, random, dot
+from numpy import exp, array, random, dot, int64
 
 
 def get_validated_inputs(sysargs):
@@ -53,7 +53,7 @@ class SingleNeuronNetwork:
         # get a random seed, but use the same one
         # for all initial synaptic weights
         random.seed(
-            random.randint(0, 4294967296)  # high is 32-bit maxint (exclusive)
+            random.randint(0, 2**32 - 1, dtype=int64)  # high is 32-bit maxint (exclusive)
         )
 
         # model a single neuron with 3 inputs : 1 output
