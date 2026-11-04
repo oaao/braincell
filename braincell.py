@@ -143,7 +143,7 @@ class SingleNeuronNetwork:
                 f"\nCall .train() on this instance with "
                 f"an appropriately shaped array of training data."
             )
-        result = self.reason_about(array(test_case))
+        result = self.reason_about(array(test_case)).item()
         print(
             f"{result} for an expected output of {test_case[0]}."
             f"\nResult inaccuracy was "
