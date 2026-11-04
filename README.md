@@ -22,17 +22,30 @@ This keeps the problem space simple enough to focus on its mathematical operatio
 
 ## Usage
 
-Depends on `numpy`.
+### Setup
+
+`pip install uv` if you don't have it already.
+
+[uv](https://docs.astral.sh/uv/) is a library that manages both virtual environments and package versioning.
+
+
+This project uses `numpy` for math. `uv` will automatically install it in the venv on first run.
+
+
+### Run
 
 Running `braincell` executes an end-to-end demonstration (initialisation, training, and two test cases).
 
 ```bash
-$ python braincell.py
+$ uv braincell.py
 ```
 
-By default, `braincell` will output verbosely and perform 10,000 iterations (an accuracy:instantaneity sweet spot).
+By default, `braincell` will run 10,000 training iterations and output them to console.
 
-You can optionally supply (in any order) a specific integer-number of iterations, and/or `quiet` to turn off iteration verbosity:
+You can run `braincell` with optional arguments (in any order):
+  - `quiet`: silences training console output so you just get the before-after logging
+  - `{any int}`: specify the number of training iterations 
+
 
 ```bash
 $ python braincell.py 10 quiet
