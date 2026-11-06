@@ -15,7 +15,7 @@ Understanding this schematic, but especially the foundational 'lower-level' math
 The "puzzle" posed to the 'atomic' NN is simple: a 3x1 matrix (-> 3 in : 1 out 'neuron'), containing elements of either 0 or 1, in which the 'answer' / expected output is simply the first element.
 
 ```python
-[ 0, 1, 1, 1 ]  # 0
+[ 0, 1, 1 ]  # 0
 ```
 
 This keeps the problem space simple enough to focus on its mathematical operations (and avoid the 'code noise' of more involved value processing), while letting it be *just* complex enough to meaningfully display initialisation and training behaviours.
